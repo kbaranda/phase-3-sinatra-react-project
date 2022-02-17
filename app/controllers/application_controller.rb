@@ -27,4 +27,18 @@ class ApplicationController < Sinatra::Base
     house.destroy
     house.to_json
   end
+
+  post "/houses" do
+    house = House.create(
+      address: params[:address],
+      city: params[:city],
+      state: params[:state],
+      areaCode: params[:areaCode],
+      description: params[:description],
+      beds: params[:beds],
+      baths: params[:baths],
+      imageUrl: params[:imageUrl]
+    )
+    house.to_json
+  end
 end
